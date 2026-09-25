@@ -22,3 +22,9 @@ resource "aws_iam_group_policy_attachment" "attach_mfa" {
   group      = aws_iam_group.engineering.name
   policy_arn = aws_iam_policy.enforce_mfa.arn
 }
+
+# 4. Attach the Residency Policy to the existing Engineering Group
+resource "aws_iam_group_policy_attachment" "attach_residency" {
+  group      = aws_iam_group.engineering.name
+  policy_arn = aws_iam_policy.enforce_india_residency.arn
+}
