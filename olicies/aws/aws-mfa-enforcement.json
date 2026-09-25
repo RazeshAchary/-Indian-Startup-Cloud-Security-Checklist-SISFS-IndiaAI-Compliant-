@@ -1,0 +1,54 @@
+jsonencode({
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowViewAccountInfoAndManageOwnCredentials",
+      "Effect": "Allow",
+      "Action": [
+        "iam:ListVirtualMFADevices",
+        "iam:ListMFADevices",
+        "iam:ListAccessKeys",
+        "iam:ListSSHPublicKeys",
+        "iam:ListServiceSpecificCredentials",
+        "iam:ListAccountAliases",
+        "iam:GetUser",
+        "iam:ChangePassword"
+      ],
+      "Resource": [
+        "arn:aws:iam::*:user/${aws:username}"
+      ]
+    },
+    {
+      "Sid": "AllowManageOwnMFADevices",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateVirtualMFADevice",
+        "iam:DeleteVirtualMFADevice",
+        "iam:EnableMFADevice",
+        "iam:ResyncMFADevice"
+      ],
+      "Resource": [
+        "arn:aws:iam::*:mfa/${aws:username}",
+        "arn:aws:iam::*:user/${aws:username}"
+      ]
+    },
+    {
+      "Sid": "DenyAllExceptIAMIfNoMFA",
+      "Effect": "Deny",
+      "NotAction": [
+        "iam:CreateVirtualMFADevice",
+        "iam:EnableMFADevice",
+        "iam:ListVirtualMFADevices",
+        "iam:ListMFADevices",
+        "iam:ChangePassword",
+        "iam:GetUser"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:MultiFactorAuthPresent": "false"
+        }
+      }
+    }
+  ]
+})
