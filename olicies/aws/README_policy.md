@@ -16,12 +16,12 @@ Create a Terraform file in your infrastructure repository and add the configurat
 
 2. How to Initialize and ApplyInstruct developers to run the standard deployment workflow in their terminal:bash
 
-# Initialize your backend workspace and fetch cloud providers
+# ** Initialize your backend workspace and fetch cloud providers**
 terraform init
 
-# Preview the modifications to ensure the IAM group and policies map correctly
+# ** Preview the modifications to ensure the IAM group and policies map correctly**
 terraform plan
 
-# Deploy the configuration live to your AWS Organization
+# ** Deploy the configuration live to your AWS Organization**
 terraform apply
 
