@@ -1,0 +1,23 @@
+json{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyS3ActionsOutsideIndiaRegions",
+      "Effect": "Deny",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:PutObject",
+        "s3:PutObjectAcl"
+      ],
+      "Resource": "arn:aws:s3:::*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "ap-south-1",
+            "ap-south-2"
+          ]
+        }
+      }
+    }
+  ]
+}
