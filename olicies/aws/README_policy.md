@@ -13,7 +13,7 @@ Instead of manually configuring IAM policies, you can manage this global securit
 When spinning up your actual databases and storage layers, use secure-defaults.tf as a baseline template. It automatically applies the precise bucket isolation, TLS settings, and India-region parameters required to clear your Incubator milestones.
 
 1. The Terraform Implementation Code (mfa_enforcement.tf) 
-
+``
 Create a Terraform file in your infrastructure repository and add the configuration. It reads your raw JSON policy block and binds it to an IAM group.
 
 2. How to Initialize and ApplyInstruct developers to run the standard deployment workflow in their terminal:bash
