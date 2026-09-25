@@ -1,0 +1,2 @@
+# -Indian-Startup-Cloud-Security-Checklist-SISFS-IndiaAI-Compliant-
+A practical, production-ready cloud security checklist for early-stage Indian startups receiving Startup India Seed Fund Scheme (SISFS), IndiaAI, or MeitY** funding).   Adhering to these checkpoints helps technical teams eliminate infrastructure vulnerabilities, align with data laws &amp;pass incubator technical evaluations to avoid disbursement delays
